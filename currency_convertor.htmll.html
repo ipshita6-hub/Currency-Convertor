@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-exchange-alt"></i>
+            CurrencyPro
+        </div>
+        <div class="nav-links">
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="history-btn" aria-label="View history">
+                <i class="fas fa-history"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Convert Currencies in Real-Time</h1>
+            <p>Fast, reliable, and secure currency conversion at your fingertips</p>
+        </section>
+
+        <section class="converter-container">
+            <div class="converter-card">
+                <div class="amount-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount" min="0" step="0.01">
+                </div>
+
+                <div class="currency-selectors">
+                    <div class="currency-group">
+                        <label for="from-currency">From</label>
+                        <div class="select-wrapper">
+                            <input type="text" id="from-search" placeholder="Search currency" class="currency-search">
+                            <select id="from-currency"></select>
+                        </div>
+                    </div>
+
+                    <button id="swap-btn" aria-label="Swap currencies">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+
+                    <div class="currency-group">
+                        <label for="to-currency">To</label>
+                        <div class="select-wrapper">
+                            <input type="text" id="to-search" placeholder="Search currency" class="currency-search">
+                            <select id="to-currency"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="convert-btn" class="primary-btn">
+                    <span>Convert</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <br>
+                <button id="go-home" class="primary-btn" onclick="goHome()"> Go to home </button>
+                <script>
+                    function goHome() {
+                        window.location.href = "index.html";
+                    }
+                </script>
+
+                <div id="result" class="result-container hidden">
+                    <h2>Result</h2>
+                    <div class="result-amount"></div>
+                    <div class="result-rate"></div>
+                    <button id="copy-btn" class="secondary-btn">
+                        <i class="fas fa-copy"></i>
+                        Copy
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="history-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Conversion History</h2>
+                    <button class="close-modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="history-controls">
+                        <input type="text" id="history-search" placeholder="Search conversions...">
+                        <button id="clear-history" class="danger-btn">Clear History</button>
+                    </div>
+                    <div class="history-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
